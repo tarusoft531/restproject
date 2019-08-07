@@ -7,5 +7,6 @@ import com.rest.bean.Student;
 
 @Repository
 public interface StudentDao extends JpaRepository<Student, Integer> {
-
+ 
 }
+

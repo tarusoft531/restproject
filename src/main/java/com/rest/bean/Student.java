@@ -13,9 +13,19 @@ public class Student {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String name;
-	private String email;
-	private String course;
+	private String firstname;
+	private String lastname;
+	private String emailid;
+
+	public Student() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Student(String firstname, String lastname, String emailid) {
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.emailid = emailid;
+	}
 
 	public int getId() {
 		return id;
@@ -25,35 +35,33 @@ public class Student {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 
-	public String getCourse() {
-		return course;
+	public String getEmailid() {
+		return emailid;
 	}
 
-	public void setCourse(String course) {
-		this.course = course;
+	public void setEmailid(String emailid) {
+		this.emailid = emailid;
 	}
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", email=" + email + ", course=" + course + ", getId()="
-				+ getId() + ", getName()=" + getName() + ", getEmail()=" + getEmail() + ", getCourse()=" + getCourse()
-				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+		return "Student [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", emailid=" + emailid
 				+ "]";
 	}
 
