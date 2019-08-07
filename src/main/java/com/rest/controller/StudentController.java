@@ -1,26 +1,29 @@
 package com.rest.controller;
 
-import java.util.List;
+import java.util.Arrays;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.client.RestTemplate;
 
 import com.rest.bean.Student;
-import com.rest.service.StudentService;
 
 @Controller
 public class StudentController {
 	
-	@Autowired
-	private StudentService studentservice;
-
 	@GetMapping("/studentDetails.do")
 	public String getAllStudents(Model model) 
 	{
-		List<Student> list = studentservice.getAllStudents();
-		model.addAttribute("list", list);
+		
+		RestTemplate template = new RestTemplate();
+		
+		String URI = "http://localhost:8081/hello";
+		ResponseEntity<Student[]> response = template.getForEntity(URI, Student[].class);
+		
+		model.addAttribute("list", Arrays.asList(response.getBody()));
+		
 		return "studentList";
 	}
 }
