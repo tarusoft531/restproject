@@ -22,7 +22,7 @@
 				<td>${e.id}</td>
 				<td>${e.firstname}</td>
 				<td>${e.lastname}</td>
-				<td>${e.email}</td>
+				<td>${e.emailid}</td>
 			</tr>
 		</c:forEach>
 	</table>
